@@ -21,7 +21,7 @@ import com.formation.exemple_geom.repositories.LocationRepository;
 @Controller
 @RequestMapping("/liste")
 @CrossOrigin("http://localhost:4200")
-public class Snippet {
+public class LoctionController {
 	@Autowired
 		private LocationRepository routeRepository;
 		
