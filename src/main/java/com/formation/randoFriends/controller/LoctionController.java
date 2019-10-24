@@ -1,4 +1,4 @@
-package com.formation.exemple_geom.controller;
+package com.formation.randoFriends.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.formation.exemple_geom.metier.Location;
-import com.formation.exemple_geom.repositories.LocationRepository;
+import com.formation.randoFriends.metier.Location;
+import com.formation.randoFriends.repositories.LocationRepository;
 
 @Controller
 @RequestMapping("/liste")

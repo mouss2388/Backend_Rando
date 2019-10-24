@@ -1,6 +1,5 @@
-package com.formation.exemple_geom.metier;
+package com.formation.randoFriends.metier;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
