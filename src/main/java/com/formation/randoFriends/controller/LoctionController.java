@@ -23,34 +23,34 @@ import com.formation.randoFriends.repositories.LocationRepository;
 @CrossOrigin("http://localhost:4200")
 public class LoctionController {
 	@Autowired
-		private LocationRepository routeRepository;
-		
-		
-		
-		@GetMapping(value="", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-		@ResponseBody
-		public Page<Location> findAll(@PageableDefault(page = 0, size = 8) Pageable page){
-			return routeRepository.findAll(page);
-		}
-		
-		@PostMapping(value="/insert",
-				consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-				produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	private LocationRepository routeRepository;
+
+
+
+	@GetMapping(value="", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public Page<Location> findAll(@PageableDefault(page = 0, size = 8) Pageable page){
+		return routeRepository.findAll(page);
+	}
+
+	@PostMapping(value="/insert",
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
+			produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<Location> createProduit(
-									@RequestBody Location location)
-									{
+			@RequestBody Location location)
+	{
 		/*if (produit.getId() != 0 || categorieId == 0)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		
+
 		Optional<Categorie> cat = categorieRepository.findById(categorieId);
 		if (!cat.isPresent())
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		*/
+		 */
 		//produit.setCategorie(cat.get());
 		location = routeRepository.save(location);
 		return new ResponseEntity<Location>(location, HttpStatus.CREATED);
 	}
-		
+
 }
 
