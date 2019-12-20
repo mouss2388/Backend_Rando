@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -24,8 +25,7 @@ public class Trek {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 	
-	
-	
+
 	private LocalDateTime dateDeCreation;
 	
 	private LocalDateTime dateDeroulement;
@@ -35,6 +35,9 @@ public class Trek {
 	
 	@OneToMany (mappedBy = "trek")
 	private Set<Route> routes;
+	
+	@OneToOne (mappedBy = "trek")
+	private Image image;
 	
 	public Trek(int id, LocalDateTime dateDeCreation, LocalDateTime dateDeroulement, String description, String nom,
 			String organisateur) {

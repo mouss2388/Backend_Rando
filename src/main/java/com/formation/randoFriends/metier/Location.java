@@ -22,17 +22,17 @@ public class Location {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 															
-	private String description;
+	private int locations_order;
 															
 	private Point centre_geo;
 	
 	@ManyToOne	@JsonIgnore
 	private Route route;
 	
-	public Location(int id, String description, Point centre_geo) {
+	public Location(int id, int locations_order, Point centre_geo) {
 		super();
 		this.id = id;
-		this.description = description;
+		this.locations_order = locations_order;
 		this.centre_geo = centre_geo;
 	}
 	

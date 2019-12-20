@@ -21,7 +21,7 @@ import com.formation.randoFriends.repositories.LocationRepository;
 @Controller
 @RequestMapping("/liste")
 @CrossOrigin("http://localhost:4200")
-public class LoctionController {
+public class LocationController {
 	@Autowired
 	private LocationRepository routeRepository;
 
