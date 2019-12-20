@@ -3,11 +3,13 @@ package com.formation.randoFriends.metier;
 
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -31,6 +33,9 @@ public class Trek {
 	private String nom;
 	private String organisateur;
 	
+	@OneToMany (mappedBy = "trek")
+	private Set<Route> routes;
+	
 	public Trek(int id, LocalDateTime dateDeCreation, LocalDateTime dateDeroulement, String description, String nom,
 			String organisateur) {
 		super();
@@ -40,6 +45,8 @@ public class Trek {
 		this.description = description;
 		this.nom = nom;
 		this.organisateur = organisateur;
+		
+		
 	}
 	
 	
