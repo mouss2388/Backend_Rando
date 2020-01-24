@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.Point;
 
 import lombok.Getter;
@@ -24,12 +25,12 @@ public class Location {
 															
 	private int locations_order;
 															
-	private Point centre_geo;
+	private Geometry centre_geo;
 	
 	@ManyToOne	@JsonIgnore
 	private Route route;
 	
-	public Location(int id, int locations_order, Point centre_geo) {
+	public Location(int id, int locations_order, Geometry centre_geo) {
 		super();
 		this.id = id;
 		this.locations_order = locations_order;
