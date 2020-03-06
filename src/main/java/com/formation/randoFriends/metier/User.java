@@ -1,6 +1,5 @@
 package com.formation.randoFriends.metier;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;

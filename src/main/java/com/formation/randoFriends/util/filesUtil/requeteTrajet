@@ -1,0 +1,4 @@
+REQUEST FOR INSERT TRAJET
+INSERT INTO `locations`(`centre_geo`) VALUES (ST_GeomFromText('LINESTRING(2 1, 6 6)'))
+
+

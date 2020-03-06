@@ -10,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.formation.randoFriends.metier.Image;
@@ -27,9 +27,9 @@ import com.formation.randoFriends.repositories.TrekRepository;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/images")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 public class ImageController {
 
 	@Autowired
@@ -38,9 +38,7 @@ public class ImageController {
 	@Autowired
 	private TrekRepository trekRepository;
 	
-	@PostMapping(value="/upload", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@ResponseBody
-	@CrossOrigin("http://localhost:4200")		
+	@PostMapping	
 	public ResponseEntity<Image> upload(@RequestParam("file") MultipartFile file,
 										@RequestParam("trekId") int trekId){
 		Optional<Trek> t = trekRepository.findById(trekId);
@@ -62,9 +60,7 @@ public class ImageController {
 		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@GetMapping(value = "/{id:[0-9]+}/data")
-	@ResponseBody
-	@CrossOrigin("http://localhost:4200")
+	@GetMapping("/{id:[0-9]+}/data")
 	public ResponseEntity<FileSystemResource> imageData(@PathVariable("id")int id) {
 		Optional<Image> op = imageRepository.findById(id);
 		if (!op.isPresent())
@@ -85,9 +81,7 @@ public class ImageController {
 		return re;
 	}
 	
-	@GetMapping(value = "/{id:[0-9]+}/thumbdata")
-	@ResponseBody
-	@CrossOrigin("http://localhost:4200")
+	@GetMapping("/{id:[0-9]+}/thumbdata")
 	public ResponseEntity<FileSystemResource> imageThumbData(@PathVariable("id")int id) {
 		Optional<Image> op = imageRepository.findById(id);
 		if (!op.isPresent())

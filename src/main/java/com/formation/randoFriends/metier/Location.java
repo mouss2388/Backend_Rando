@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.Point;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,19 +22,17 @@ public class Location {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 															
-	private int locations_order;
-															
 	private Geometry centre_geo;
 	
 	@ManyToOne	@JsonIgnore
 	private Route route;
-	
-	public Location(int id, int locations_order, Geometry centre_geo) {
-		super();
+
+	public Location(int id, Geometry centre_geo, Route route) {
 		this.id = id;
-		this.locations_order = locations_order;
 		this.centre_geo = centre_geo;
+		this.route = route;
 	}
+	
 	
 	
 	
